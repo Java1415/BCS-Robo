@@ -1,3 +1,7 @@
+# Feb 3,2024 Update:
+- Only Computers 14 and 15 can connect with the FRC Driver Station. Please keep this mind!
+
+
 # BCS-RoboShack 🤫🧏‍♀️
 BCSRoboSharks test
 
