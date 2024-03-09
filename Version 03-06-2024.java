@@ -23,43 +23,45 @@ import edu.wpi.first.wpilibj.Timer;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
+
 public class Robot extends TimedRobot {
+ 
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
 
 
-private final CAN rightMotor = new CAN(0);
+  private final CAN rightMotor = new SparkMax(1);
 
-//left motors
-private final CAN leftMotor = new CAN(1);
+  //left motors
+  private final CAN leftMotor = new SparkMax(2);
 
 //Speed Controller Groups
-Private final MotorControllerGroup ringLauncherGroup = new MotorControllerGroup(ringMotor1, ringMotor2);
-private final MotorControllerGroup hookGroup = new MotorControllerGroup(hookMotor1, hookMotor2);
+private final MotorControllerGroup launcherGroup = new MotorControllerGroup(topLauncherMotor, bottomLauncherMotor);
+private final MotorControllerGroup hookGroup = new MotorControllerGroup(leftHookMotor, rightHookMotor);
 //drivetrain
-private final DifferentialDrive drivetrain = new DifferentialDrive(leftMotor, rightMotor);
+private final DifferentialDrive driveTrain = new DifferentialDrive(leftMotor, rightMotor);
 
-//feeder Mechanism
-private final CAN ringMotor1 = new CAN(2);
+//Left Hook
+private final CAN leftHookMotor = new WPI_VictorSPX(3);
 
-//intake Mechanism
-private final CAN ringMotor2 = new CAN(3);
+//Right Hook
+private final CAN rightHookMotor= new WPI_VictorSPX(4);
 
-//Hook Mechanism
-private final CAN hookMotor1 = new CAN(4);
+// Top feeder Mechanism
+private final CAN topLauncherMotor = new WPI_VictorSPX(5);
 
-//Hook Mech
-private final CAN hookMotor2 = new CAN(5);
+// Bottom feeder Mechanism
+private final CAN bottomLauncherMotor = new WPI_VictorSPX(6);
 
 
 //Joystick
-private final Joystick stick1 = new Joystick(0);
-private final Joystick stick2 = new Joystick(1);
+private final Joystick stick1 = new Joystick(1);
+private final Joystick stick2 = new Joystick(2);
 
 //Time
-Timer timer = new Timer();
+Timer timer = new Timer();*/
 
 //Camera
 
@@ -84,7 +86,7 @@ CameraServer.startAutomaticCapture();
   @Override
   public void autonomousPeriodic() {
   
-    //if (timer.get()<2){
+    /*if (timer.get()<2){
 
       //rightSpeedGroup.set(0.25);
       //leftSpeedGroup.set(0.25);
@@ -109,7 +111,7 @@ CameraServer.startAutomaticCapture();
 //  }else{
 //    feeder.set(0);
 //  }
-//Jonathan tries to replicate and add on
+/*Jonathan tries to replicate and add on
 if (timer.get()<8){
   feederMotor.set(1);
   }else{
@@ -120,7 +122,7 @@ if (timer.get()<8){
     shooterMotor.set(-0.75);
   }else{
     shooterMotor.set(0);
-  }
+  }*/
 
   
 }
@@ -133,7 +135,7 @@ if (timer.get()<8){
 
     drivetrain.arcadeDrive(stick1.getX(), stick1.getY());
     
-    boolean hookButtonUp = stick2.getRawButton(11);
+   /*  boolean hookButtonUp = stick2.getRawButton(11);
     if (hookButtonUp){
 			hookLauncherGroup.set(1);
 		}
@@ -154,17 +156,17 @@ if (timer.get()<8){
 			ringLauncherGroup.set(0);
  	}
   
-   boolean intakeButtonFoward = stick2.getRawButton(6);
+   boolean ringLauncherFoward = stick2.getRawButton(6);
    if (intakeButtonFoward){
-     intakeMotor.set(1);
+     t.set(1);
   } 
 
   boolean intakeButtonReverse = stick2.getRawButton(7);
   if (intakeButtonReverse){
-    intakeMotor.set(-1);
+    ringLnuncherGroup.set(-1);
  } 
 
-  boolean intakeButtonOff = stick2.getRawButton(6) || stick2.getRawButton(7);
+  boolean ringLauncehrButtonOff = stick2.getRawButton(6) || stick2.getRawButton(7);
   if (!intakeButtonOff){
     intakeMotor.set(0);
   }
@@ -177,8 +179,8 @@ if (timer.get()<8){
   boolean HangingButtonUp = stick2.getRawButton(4);
   if(HangingButtonUp){
     hangingMotor.set(1);
-  } 
-  boolean HangingButtonDown = stick2.getRawButton(5);
+  } */
+  boolean leftMotorButtonForward = stick1.getx();
   if(HangingButtonDown){
     hangingMotor.set(-1);
   }
@@ -202,3 +204,4 @@ if (timer.get()<8){
   @Override
   public void testPeriodic() {}
 }
+

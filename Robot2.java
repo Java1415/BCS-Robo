@@ -1,4 +1,4 @@
-// Copyright (c) FIRST and other WPILib contributors.
+/*Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
@@ -22,11 +22,11 @@ import edu.wpi.first.wpilibj.Timer;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot2 extends TimedRobot {
+//public class Robot2 extends TimedRobot {
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
-   */
+   
 
   //right motors
 private final WPI_VictorSPX rightMotor1 = new WPI_VictorSPX(1);
@@ -208,4 +208,4 @@ if (timer.get()<8){
 
   @Override
   public void testPeriodic() {}
-}
+}*/
