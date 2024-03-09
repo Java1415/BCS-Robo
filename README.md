@@ -1,28 +1,13 @@
-# Feb 3,2024 Update:
-- Only Computers 14 and 15 can connect with the FRC Driver Station. Please keep this mind! Computers 1, 2, 7, and 10 are Programming Computers - We push testing code to Driver Computers!
+# Tank Drive with CAN
 
+### Description
+This example shows how to set up tank drive with SPARK MAX.
 
-# BCS-RoboShack 🤫🧏‍♀️
-BCSRoboSharks test
+### Usage
+Set the variables at the beginning of the example to match your setup.
+- `leftDeviceID` - Right motor CAN device ID
+- `rightDeviceID` - Left motor CAN device ID
 
-👉🏿👇🏿👇🏿👇🏿👇🏿👇🏿👇🏿👇🏿👇🏿👇🏿👈🏿
+Control the left motor by moving the left joystick up or down.
 
-👉🏿👇🏾👇🏾👇🏾👇🏾👇🏾👇🏾👇🏾👇🏾👇🏾👈🏿
-
-👉🏿👉🏾👇🏽👇🏽👇🏽👇🏽👇🏽👇🏽👇🏽👈🏾👈🏿
-
-👉🏿👉🏾👉🏽👇🏼👇🏼👇🏼👇🏼👇🏼👈🏽👈🏾👈🏿
-
-👉🏿👉🏾👉🏽👉🏼👇🏻👇🏻👇🏻👈🏼👈🏽👈🏾👈🏿
-
-👉🏿👉🏾👉🏽👉🏼👉🏻 ඞ 👈🏻👈🏼👈🏽👈🏾👈🏿
-
-👉🏿👉🏾👉🏽👉🏼👆🏻👆🏻👆🏻👈🏼👈🏽👈🏾👈🏿
-
-👉🏿👉🏾👉🏽👆🏼👆🏼👆🏼👆🏼👆🏼👈🏽👈🏾👈🏿
-
-👉🏿👉🏾👆🏽👆🏽👆🏽👆🏽👆🏽👆🏽👆🏽👈🏾👈🏿
-
-👉🏿👆🏾👆🏾👆🏾👆🏾👆🏾👆🏾👆🏾👆🏾👆🏾👈🏿
-
-👉🏿👆🏿👆🏿👆🏿👆🏿👆🏿👆🏿👆🏿👆🏿👆🏿👈🏿
+Control the right motor by moving the right joystick up or down.
