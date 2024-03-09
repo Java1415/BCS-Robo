@@ -22,16 +22,16 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   private DifferentialDrive driveRobot;
-  private Joystick leftStick;
-  private Joystick rightStick;
+  private Joystick driveStick;
+  //private Joystick rightStick;
   private static final int leftDeviceID = 1; 
   private static final int rightDeviceID = 2;
   private static final int leftHookID = 3;
   private static final int rightHookID = 4;
   private static final int topLauncherID = 5;          //100% speed
   private static final int bottomLauncherID = 6;       //75% speed
-  private CANSparkMax leftMotor;
-  private CANSparkMax rightMotor;
+  private PWMSparkMax leftMotor;
+  private PWMSparkMax rightMotor;
   private PWMVictorSPX leftHook;
   private PWMVictorSPX rightHook;
   private PWMVictorSPX topLauncher;
@@ -54,8 +54,8 @@ public class Robot extends TimedRobot {
    * The example below initializes four brushless motors with CAN IDs 1 and 2. Change
    * these parameters to match your setup
    */
-    leftMotor = new CANSparkMax(leftDeviceID, MotorType.kBrushless);
-    rightMotor = new CANSparkMax(rightDeviceID, MotorType.kBrushless);
+    leftMotor = new PWMSparkMax(leftDeviceID);
+    rightMotor = new PWMSparkMax(rightDeviceID);
     leftHook = new PWMVictorSPX(leftHookID);
     rightHook = new PWMVictorSPX(rightHookID);
     topLauncher = new PWMVictorSPX(topLauncherID);
@@ -66,13 +66,12 @@ public class Robot extends TimedRobot {
      * in the SPARK MAX to their factory default state. If no argument is passed, these
      * parameters will not persist between power cycles
      */
-    leftMotor.restoreFactoryDefaults();
-    rightMotor.restoreFactoryDefaults();
+    //leftMotor.restoreFactoryDefaults();
+    //rightMotor.restoreFactoryDefaults();
 
     driveRobot = new DifferentialDrive(leftMotor, rightMotor);
 
-    leftStick = new Joystick(1);
-    rightStick = new Joystick(2);
+    driveStick = new Joystick(1);
   }
   
   @Override
@@ -94,7 +93,8 @@ public class Robot extends TimedRobot {
 
   @Override                       // Do This During TeleOp/Controlled Period
   public void teleopPeriodic() {
-    driveRobot.tankDrive(leftStick.getY(), rightStick.getY());
+    driveRobot.tankDrive(driveStick.getY(), driveStick.getX());
+    
   }
 
   @Override
